@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}autopedia{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="topbar">
+                <div class="brand">
+                    <a href="{{ url_for('entries') }}">Autopedia (仮)</a>
+                </div>
+                <nav class="nav">
+                    <!-- ログイン, ログアウト状態両方ここに書く -->
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('entries') }}">一覧</a>
+                        <a href="{{ url_for('generate') }}">LLM 生成</a>
+                        <a href="{{ url_for('new_entry') }}">自分で入力</a>
+                        <a href="{{ url_for('logout') }}">ログアウト</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}">ログイン</a>
+                        <a href="{{ url_for('register') }}">新規登録</a>
+                    {% endif %}
+                </nav>        
+            </header>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash">
+                        {% for m in messages %}
+                            <div class="flash-item">
+                                {{ m }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}            
+        </div>
+    </body>
+</html>
