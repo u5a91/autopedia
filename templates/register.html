@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}新規登録{% endblock %}
+
+{% block content %}
+    <h1>新規登録</h1>
+    <form method="post" class="panel">
+    <label>ユーザ名</label>
+    <input name="username" autocomplete="username" required>
+    <label>パスワード</label>
+    <input name="password" type="password" autocomplete="new-password" required>
+    <button type="submit">登録</button>
+    </form>
+{% endblock %}
