@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}エントリ一覧{% endblock %}
+
+{% block content %}
+    <h1>エントリ一覧</h1>
+    <form method="get" class="panel">
+        <input name="q" placeholder="全文検索" value="{{ q }}">
+        <button type ="submit">検索</button>
+        {% if q %}
+            <a class="btn" href="{{ url_for('entries') }}">クリア</a>
+        {% endif %}
+    </form>
+
+    {% if items %}
+        <ul class="list">
+            {% for e in items %}
+                <li class="list-item">
+                    <a href="{{ url_for('entry_view', entry_id=e.id) }}">{{ e.title }}</a>
+                    <div class="meta">
+                        updated: {{ e.updated_at }}
+                        {% if e.tags %}
+                            tags: {{ e.tags }}
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>まだエントリがありません. </p>
+    {% endif %}
+{% endblock %}
