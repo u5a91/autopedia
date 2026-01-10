@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}手動新規作成{% endblock %}
+
+{% block content %}
+    <h1>手動新規作成</h1>
+    
+    <form method="post" class="panel">
+        <label>title</label>
+        <input name="title" required>
+
+        <label>context</label>
+        <textarea name="context" rows="4"></textarea>
+
+        <label>tags (カンマ(,)区切り)</label>
+        <input name="tags">
+
+        <label>content</label>
+        <textarea name="content" rows="14" required></textarea>
+
+        <button type="submit">保存</button>
+    </form>
+{% endblock %}

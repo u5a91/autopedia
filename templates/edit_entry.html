@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}編集 - {{ entry.title }}{% endblock %}
+
+{% block content %}
+    <h1>編集</h1>
+    
+    <form method="post" class="panel">
+        <label>title</label>
+        <input name="title" value="{{ entry.title }}" required>
+
+        <label>context</label>
+        <textarea name="context" rows="4">{{ entry.context or "" }}</textarea>
+
+        <label>tags (カンマ(,)区切り)</label>
+        <input name="tags" value="{{ entry.tags or '' }}">
+
+        <label>content</label>
+        <textarea name="content" rows="14" required>{{ entry.content }}</textarea>
+
+        <button type="submit">更新</button>
+        <a class="btn" href="{{ url_for('entry_view', entry_id=entry.id) }}">保存せず戻る</a>
+    </form>
+{% endblock %}

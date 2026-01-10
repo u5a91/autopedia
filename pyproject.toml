@@ -7,6 +7,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+flask = "^3.1.2"
+flask-sqlalchemy = "^3.1.1"
+flask-login = "^0.6.3"
+flask-migrate = "^4.1.0"
+sqlalchemy = "^2.0.45"
+python-dotenv = "^1.2.1"
+bleach = "^6.3.0"
+markdown = "^3.10"
+openai = "^2.15.0"
 
 
 [build-system]

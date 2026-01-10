@@ -346,7 +346,6 @@ def markdown_preview():
     return jsonify({"html": html})
 
 if __name__ == "__main__":
-    # 重要: 以下は初期化のため, はじめの 1 回のみ行う (以降はコメントアウト)
-    # with app.app_context():
-    #    db.create_all()
-    app.run(debug=True)
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, port=5001)
